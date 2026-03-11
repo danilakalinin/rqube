@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #060610;
+  --bg2: #0a0a1a;
+  --surface: #0f0f26;
+  --surface2: #141432;
+  --surface3: #1a1a3e;
+  --accent: #7c3aed;
+  --accent2: #a855f7;
+  --accent-glow: rgba(124, 58, 237, 0.35);
+  --gold: #f59e0b;
+  --gold2: #fbbf24;
+  --gold-glow: rgba(245, 158, 11, 0.35);
+  --nat20: #10b981;
+  --nat20-glow: rgba(16, 185, 129, 0.5);
+  --nat1: #ef4444;
+  --nat1-glow: rgba(239, 68, 68, 0.5);
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --text-muted: #475569;
+  --border: #1e1e4a;
+  --border2: #2d2d6a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+button { font-family: inherit; cursor: pointer; }
+input  { font-family: inherit; }

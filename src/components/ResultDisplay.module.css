@@ -1,0 +1,172 @@
+.container {
+  position: relative;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 24px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at 50% -20%, rgba(255,255,255,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.nat20 {
+  border-color: var(--nat20) !important;
+  box-shadow: 0 0 40px var(--nat20-glow), inset 0 0 40px rgba(16,185,129,0.05);
+}
+
+.nat1 {
+  border-color: var(--nat1) !important;
+  box-shadow: 0 0 40px var(--nat1-glow), inset 0 0 40px rgba(239,68,68,0.05);
+}
+
+/* Empty state */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+  opacity: 0.4;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+.empty p { font-size: 0.9rem; }
+.hint { font-size: 0.75rem !important; opacity: 0.5; }
+
+/* Result */
+.formula {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.chip {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  transition: all 0.2s;
+}
+
+.chipMax {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #6ee7b7;
+  box-shadow: 0 0 8px rgba(16,185,129,0.2);
+}
+
+.chipMin {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  box-shadow: 0 0 8px rgba(239,68,68,0.2);
+}
+
+.total {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: 900;
+  font-family: 'Cinzel', serif;
+  color: var(--gold2);
+  line-height: 1;
+  text-shadow:
+    0 0 20px var(--gold-glow),
+    0 0 60px rgba(245,158,11,0.2);
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0.4) rotate(-6deg); opacity: 0; }
+  60%  { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.modLine {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.nat20msg {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--nat20);
+  text-shadow: 0 0 12px var(--nat20-glow);
+  letter-spacing: 0.5px;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nat1msg {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--nat1);
+  text-shadow: 0 0 12px var(--nat1-glow);
+  letter-spacing: 0.5px;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Nat20 particles */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--nat20);
+  animation: fly 1s ease-out forwards;
+}
+
+.particle:nth-child(1)  { left: 10%; animation-delay: 0s;    }
+.particle:nth-child(2)  { left: 20%; animation-delay: 0.05s; }
+.particle:nth-child(3)  { left: 30%; animation-delay: 0.1s;  }
+.particle:nth-child(4)  { left: 40%; animation-delay: 0.15s; }
+.particle:nth-child(5)  { left: 50%; animation-delay: 0.05s; }
+.particle:nth-child(6)  { left: 60%; animation-delay: 0.1s;  }
+.particle:nth-child(7)  { left: 70%; animation-delay: 0.0s;  }
+.particle:nth-child(8)  { left: 80%; animation-delay: 0.08s; }
+.particle:nth-child(9)  { left: 90%; animation-delay: 0.12s; }
+.particle:nth-child(10) { left: 15%; animation-delay: 0.18s; }
+.particle:nth-child(11) { left: 55%; animation-delay: 0.22s; }
+.particle:nth-child(12) { left: 75%; animation-delay: 0.03s; }
+
+@keyframes fly {
+  0%   { bottom: 0; opacity: 1; transform: translateX(0) scale(1); }
+  100% { bottom: 110%; opacity: 0; transform: translateX(calc((var(--r,0.5) - 0.5) * 60px)) scale(0.3); }
+}

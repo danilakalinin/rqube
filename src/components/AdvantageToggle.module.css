@@ -1,0 +1,43 @@
+.group {
+  display: flex;
+  gap: 6px;
+}
+
+.btn {
+  flex: 1;
+  padding: 9px 8px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--surface2);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  border-color: var(--border2);
+  color: var(--text-dim);
+}
+
+.advantage {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--nat20);
+  color: #6ee7b7;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.normal {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: var(--accent2);
+  color: #c4b5fd;
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.15);
+}
+
+.disadvantage {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--nat1);
+  color: #fca5a5;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+}
